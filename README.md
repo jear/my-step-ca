@@ -9,7 +9,7 @@ step certificate create "Example Intermediate CA 1"     intermediate_ca.crt inte
 # When password is requested ( Thales CM )
 step certificate create thales-cm-1.lysdemolab.fr thales-cm-1.lysdemolab.fr.crt thales-cm-1.lysdemolab.fr.key  --profile leaf --not-after=8760h  --ca ./intermediate_ca.crt --ca-key ./intermediate_ca.key --bundle
 step certificate verify thales-cm-1.lysdemolab.fr.crt --roots root_ca.crt
-# Concatenate the crt and key in the same file
+# Concatenate the crt and key in a .pem file
 # Upload new cert in Thales CM web interface
 # Repeat for other cluster members
 
