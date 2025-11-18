@@ -20,3 +20,6 @@ step certificate verify thales-cm-2.lysdemolab.fr.crt --roots root_ca.crt
 step certificate create ilo-dl380-nvidia-a100.lysdemolab.fr ilo-dl380-nvidia-a100.lysdemolab.fr.crt ilo-dl380-nvidia-a100.lysdemolab.fr.key --profile leaf --not-after=8760h  --ca ./intermediate_ca.crt --ca-key ./intermediate_ca.key --bundle --no-password --insecure  --kty RSA --size 2048
 
 ```
+
+
+- https://step-ca.lysdemolab.fr/acme/acme/directory
