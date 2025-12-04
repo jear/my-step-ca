@@ -1,4 +1,15 @@
 # my-step-ca
+
+```
+https://smallstep.com/docs/step-ca/installation/#kubernetes
+
+helm repo add smallstep https://smallstep.github.io/helm-charts/
+helm repo update
+helm install step-certificates smallstep/step-certificates
+
+```
+
+
 ```
 step certificate create --profile root-ca "Example Root CA" root_ca.crt root_ca.key
 step certificate create "Example Intermediate CA 1"     intermediate_ca.crt intermediate_ca.key     --profile intermediate-ca --ca ./root_ca.crt --ca-key ./root_ca.key
@@ -23,3 +34,22 @@ step certificate create ilo-dl380-nvidia-a100.lysdemolab.fr ilo-dl380-nvidia-a10
 
 
 - https://step-ca.lysdemolab.fr/acme/acme/directory
+
+```
+#log into step-ca
+MY_HOST=morpheus
+step certificate inspect $MY_HOST.lysdemolab.fr.crt
+
+step ca renew  $MY_HOST.lysdemolab.fr.crt  $MY_HOST.lysdemolab.fr.key
+✔ Would you like to overwrite morpheus.lysdemolab.fr.crt [y/n]: y
+Your certificate has been saved in morpheus.lysdemolab.fr.crt.
+
+scp $MY_HOST.lysdemolab.fr.crt $MY_HOST.lysdemolab.fr.key intermediate_ca.crt ubnt@$MY_HOST.lysdemolab.fr:/home/ubnt/
+ubnt@morpheus.lysdemolab.fr's password:
+morpheus.lysdemolab.fr.crt                                                                            100% 1779     1.7MB/s   00:00
+morpheus.lysdemolab.fr.key                                                                            100% 1675     1.7MB/s   00:00
+intermediate_ca.crt                                                                                   100%  745   996.4KB/s   00:00
+
+
+
+```
