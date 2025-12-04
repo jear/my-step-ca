@@ -5,7 +5,25 @@ https://smallstep.com/docs/step-ca/installation/#kubernetes
 
 helm repo add smallstep https://smallstep.github.io/helm-charts/
 helm repo update
-helm install step-certificates smallstep/step-certificates
+
+helm upgrade --install  step-certificates smallstep/step-certificates -n step-ca --create-namespace
+Release "step-certificates" does not exist. Installing it now.
+NAME: step-certificates
+LAST DEPLOYED: Thu Dec  4 23:08:08 2025
+NAMESPACE: step-ca
+STATUS: deployed
+REVISION: 1
+NOTES:
+Thanks for installing Step CA.
+
+1. Get the PKI and Provisioner secrets running these commands:
+   kubectl get -n step-ca -o jsonpath='{.data.password}' secret/step-certificates-ca-password | base64 --decode
+   kubectl get -n step-ca -o jsonpath='{.data.password}' secret/step-certificates-provisioner-password | base64 --decode
+2. Get the CA URL and the root certificate fingerprint running this command:
+   kubectl -n step-ca logs job.batch/step-certificates
+
+3. Delete the configuration job running this command:
+   kubectl -n step-ca delete job.batch/step-certificates
 
 ```
 
