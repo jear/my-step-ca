@@ -2,6 +2,7 @@
 
 ```
 https://smallstep.com/docs/step-ca/installation/#kubernetes
+https://artifacthub.io/packages/helm/smallstep/step-certificates
 
 helm repo add smallstep https://smallstep.github.io/helm-charts/
 helm repo update
