@@ -1,5 +1,5 @@
 # my-step-ca
-
+https://smallstep.com/docs/step-ca/getting-started/
 ```
 https://smallstep.com/docs/step-ca/installation/#kubernetes
 https://artifacthub.io/packages/helm/smallstep/step-certificates
